@@ -1,0 +1,51 @@
+<!--suppress HtmlRequiredLangAttribute, HtmlDeprecatedTag, HtmlUnknownTag -->
+<html xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="{settings.layout}" />
+
+
+<f:section name="head">
+	<f:comment><!-- Don't remove this DIV. <container> will not be replaced without those following <div>! --></f:comment>
+	<div></div>
+		<container class="page-header">
+			<f:render partial="PageHeader" arguments="{_all}" />
+		</container>
+</f:section>
+
+<f:section name="main">
+  <container>
+		<f:cObject data="{colPos:0}" typoscriptObjectPath="plugin.tx_emailtemplate.lib.column" />
+  </container>
+</f:section>
+
+<f:section name="footer">
+	<container class="page-footer">
+		<f:if condition="{settings.footerContent.page}">
+			<row class="page-footer__row">
+					<columns class="page-footer__content first last">
+						<f:cObject data="{colPos:0,page:settings.footerContent.page}" typoscriptObjectPath="plugin.tx_emailtemplate.lib.column" />
+					</columns>
+				</row>
+		</f:if>
+		<f:if condition="{settings.layout} != 'OnSite'">
+			<row><columns class="spacer"></columns></row>
+			<row class="page-footer__row">
+				<columns  class="page-footer__content first last first last">
+					<center>
+						<f:if condition="{unsubscribeLink}">
+							<f:then>
+								<f:render partial="UnsubscribeLink" arguments="{_all}" section="main" />
+							</f:then>
+							<f:else>
+								No unsubscribe link found. Please set in constants!
+							</f:else>
+						</f:if>
+					</center>
+				</columns>
+			</row>
+		</f:if>
+
+	</container>
+</f:section>
+</html>
+
+

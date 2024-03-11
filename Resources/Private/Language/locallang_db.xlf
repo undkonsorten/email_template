@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2016-12-08T11:13:35Z" product-name="email_template">
+		<header/>
+		<body>
+            <trans-unit id="beLayout.oneColumn.title">
+                <source>Newsletter one column</source>
+            </trans-unit>
+            <trans-unit id="beLayout.oneColumn.col0">
+                <source>Main column</source>
+            </trans-unit>
+
+            <trans-unit id="beLayout.twoColumns.title">
+                <source>Newsletter two column</source>
+            </trans-unit>
+            <trans-unit id="beLayout.twoColumns.col0">
+                <source>Main column</source>
+            </trans-unit>
+            <trans-unit id="beLayout.twoColumns.col2">
+                <source>Sidebar</source>
+            </trans-unit>
+
+            <trans-unit id="beLayout.oneColumnAndSubSections.title">
+                <source>Main column and Sub-Sections</source>
+            </trans-unit>
+            <trans-unit id="beLayout.oneColumnAndSubSections.col0">
+                <source>Main column</source>
+            </trans-unit>
+            <trans-unit id="beLayout.oneColumnAndSubSections.col1">
+                <source>Sub-Section left</source>
+            </trans-unit>
+            <trans-unit id="beLayout.oneColumnAndSubSections.col2">
+                <source>Sub-Section right</source>
+            </trans-unit>
+
+            <trans-unit id="tt_content.layout.245">
+                <source>Callout</source>
+            </trans-unit>
+
+            <trans-unit id="tt_content.frame_class.default">
+                <source>Default</source>
+            </trans-unit>
+            <trans-unit id="tt_content.frame_class.no_space_after">
+                <source>No space after</source>
+            </trans-unit>
+
+            <trans-unit id="rte.link.button">
+                <source>Button</source>
+            </trans-unit>
+            <trans-unit id="RTE.h2.label">
+                <source>Header 2</source>
+            </trans-unit>
+            <trans-unit id="RTE.h3.label">
+                <source>Header 3</source>
+            </trans-unit>
+            <trans-unit id="RTE.h4.label">
+                <source>Header 4</source>
+            </trans-unit>
+            <trans-unit id="RTE.h5.label">
+                <source>Header 5</source>
+            </trans-unit>
+
+
+            <trans-unit id="tt_content.imageorient.235">
+                <source>Image left of text 50/50</source>
+            </trans-unit>
+            <trans-unit id="tt_content.imageorient.236">
+                <source>Image right of text 50/50</source>
+            </trans-unit>
+
+            <trans-unit id="constantEditor.customSubCategory.images">
+                <source>Images</source>
+            </trans-unit>
+            <trans-unit id="constantEditor.customSubCategory.pageTypes">
+                <source>Page types</source>
+            </trans-unit>
+		</body>
+	</file>
+</xliff>

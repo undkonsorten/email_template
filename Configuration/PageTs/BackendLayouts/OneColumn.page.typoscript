@@ -1,0 +1,26 @@
+## BackendLayouts/OneColumn.page.typoscript
+#######################
+
+mod.web_layout.BackendLayouts >
+mod.web_layout.BackendLayouts {
+    oneColumn {
+        # will be shown in the backend
+        title = LLL:EXT:email_template/Resources/Private/Language/locallang_db.xlf:beLayout.oneColumn.title
+        config {
+            backend_layout {
+                colCount = 1
+                rowCount = 1
+                rows {
+                    1 {
+                        columns {
+                            1 {
+                                name = LLL:EXT:email_template/Resources/Private/Language/locallang_db.xlf:beLayout.oneColumn.col0
+                                colPos = 0
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

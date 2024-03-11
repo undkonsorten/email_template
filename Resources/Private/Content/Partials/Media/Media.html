@@ -1,0 +1,51 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:m="http://typo3.org/ns/Undkonsorten/EmailTemplate/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<f:section name="main">
+  <f:for each="{files}" as="file" iteration="iterator">
+    <f:render section="image" arguments="{file:file,imageorient:imageorient}" />
+  </f:for>
+</f:section>
+
+<f:section name="image">
+  <f:if condition="{file.link}">
+    <f:then>
+      <f:link.typolink parameter="{file.link}" absolute="1">
+        <f:render section="media" arguments="{file:file,imageorient:imageorient}" />
+      </f:link.typolink>
+    </f:then>
+    <f:else>
+      <f:render section="media" arguments="{file:file,imageorient:imageorient}" />
+    </f:else>
+  </f:if>
+</f:section>
+
+<f:section name="media">
+  <f:if condition="{imageorient} != 0 && {imageorient} != 1 && {imageorient} != 2">
+    <f:then>
+      <f:comment>Image Left/Right of Text needs fake width Attribute for Outlook</f:comment>
+      <m:image
+              image="{file}"
+              alt="{file.alternative}"
+              title="{file.title}"
+              width="{settings.images.cols4.width}"
+              overrideWidthAttribute="{f:cObject(typoscriptObjectPath:'plugin.tx_emailtemplate.lib.imageLeftRightOverrideWidthAttribute')}"
+      />
+      <small class="caption"><i>{file.description}</i></small>
+    </f:then>
+    <f:else>
+      <f:comment>Image Above</f:comment>
+        <m:image
+                image="{file}"
+                alt="{file.alternative}"
+                title="{file.title}"
+                width="{settings.images.cols12.width}"
+                overrideWidthAttribute="{f:cObject(typoscriptObjectPath:'plugin.tx_emailtemplate.lib.imageAboveOverrideWidthAttribute')}"
+        />
+      <small class="caption"><i>{file.description}</i></small>
+    </f:else>
+  </f:if>
+</f:section>
+
+</html>

@@ -1,0 +1,13 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<f:section name="main">
+  <row class="transparent">
+    <columns small="12" class="page-header__read-online first last">
+        <small class="read-online-link-wrap">
+          <f:translate extensionName="EmailTemplate" id="readOnlineLinkPrepend" /> <f:link.page pageUid="{data.uid}" pageType="{settings.onSite.typeNum}" class="read-online-link" absolute="1"><f:translate extensionName="EmailTemplate" id="readOnlineLink" /></f:link.page><f:translate extensionName="EmailTemplate" id="readOnlineLinkAppend" />
+        </small>
+    </columns>
+  </row>
+</f:section>
+</html>

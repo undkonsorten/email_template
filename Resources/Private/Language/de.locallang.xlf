@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2016-12-08T11:13:35Z" product-name="email_template">
+		<header/>
+		<body>
+            <trans-unit id="readOnlineLinkPrepend">
+                <source>If this newsletter is not displayed properly, please</source>
+                <target>Wenn der Newsletter nicht richtig angezeigt wird,</target>
+            </trans-unit>
+            <trans-unit id="readOnlineLink">
+                <source>click here</source>
+                <target>klicken Sie hier</target>
+            </trans-unit>
+            <trans-unit id="readOnlineLinkAppend">
+                <source>.</source>
+                <target>.</target>
+            </trans-unit>
+            <trans-unit id="unsubscribeLinkPrepend" xml:space="preserve">
+                <source>If you don't want to receive our newsletter anymore, </source>
+                <target>Wenn Sie diesen Newsletter nicht mehr erhalten möchten, können Sie den </target>
+            </trans-unit>
+            <trans-unit id="unsubscribeLink" xml:space="preserve">
+                <source>please unsubcribe here</source>
+                <target>Newsletter hier abbestellen</target>
+            </trans-unit>
+            <trans-unit id="unsubscribeLinkAppend" xml:space="preserve">
+                <source>.</source>
+                <target>.</target>
+            </trans-unit>
+
+            <trans-unit id="date.format" xml:space="preserve">
+                <source>Y/m/d</source>
+                <target>%d.%m.%Y</target>
+            </trans-unit>
+
+            <trans-unit id="linkToTop">
+                <target>⬆ nach oben</target>
+            </trans-unit>
+		</body>
+	</file>
+</xliff>

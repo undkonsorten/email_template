@@ -1,0 +1,59 @@
+@import 'EXT:email_template/Configuration/PageTs/BackendLayouts/OneColumn.page.typoscript'
+@import 'EXT:email_template/Configuration/PageTs/Bootstrap/Remove.page.typoscript'
+
+RTE.config.tt_content.bodytext.preset = newsletter
+
+TCEFORM.tt_content {
+  imagecols.disabled = 1
+  imageborder.disabled = 1
+  imagewidth.disabled = 1
+  imageheight.disabled = 1
+
+  imageorient {
+    keepItems = 2,25,26
+    types {
+      textmedia {
+        keepItems = 2,25,26
+      }
+    }
+  }
+
+
+  layout >
+  layout.keepItems = 0
+  layout.addItems {
+
+    # Callout
+      callout = LLL:EXT:email_template/Resources/Private/Language/locallang_db.xlf:tt_content.layout.245
+  }
+
+  # Old menu types. Just keep local anchor menu (section index)
+  menu_type.keepItems = 3
+
+  # === frame_class for Content Elements
+  frame_class {
+      keepItems =
+      addItems >
+      addItems {
+          default = LLL:EXT:email_template/Resources/Private/Language/locallang_db.xlf:tt_content.frame_class.default
+          11 = LLL:EXT:email_template/Resources/Private/Language/locallang_db.xlf:tt_content.frame_class.no_space_after
+      }
+  }
+
+  space_before_class {
+    disabled = 1
+  }
+
+  space_after_class {
+    disabled = 1
+  }
+
+  # disable field pages in tt_content for menus if CType section_menu
+  pages.types.menu_section.disabled = 1
+
+  # Define used CTypes in newsletter.
+  CType {
+    removeItems := removeFromList(menu_section)
+    keepItems = menu_section, header, textmedia, div
+  }
+}

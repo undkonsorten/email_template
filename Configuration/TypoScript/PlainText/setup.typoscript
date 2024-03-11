@@ -1,0 +1,18 @@
+# Plain text mail page object
+tx_emailtemplate_plaintext = PAGE
+tx_emailtemplate_plaintext {
+    typeNum = {$plugin.tx_emailtemplate.plainText.typeNum}
+    config {
+        disableAllHeaderCode = 1
+        disableCharsetHeader = 1
+        additionalHeaders {
+            10 {
+                header = Content-Type: text/plain; charset=utf-8
+                replace = 1
+            }
+        }
+        absRefPrefix = {$plugin.tx_emailtemplate.absRefPrefix}
+    }
+    10 =< plugin.tx_emailtemplate.lib.page
+    10.settings.layout = PlainText
+}

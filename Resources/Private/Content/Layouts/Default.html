@@ -1,0 +1,35 @@
+<!--suppress HtmlUnknownTag -->
+<html xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+      data-namespace-typo3-fluid="true" lang="en">
+
+<!--suppress HtmlDeprecatedAttribute -->
+<a name="c{data.uid}" id="c{data.uid}"></a>
+<f:if condition="{data.layout} === 'callout'">
+  <f:then>
+    <row>
+      <columns small="12" class="no-bottom-padding nested-padding">
+        <callout class="primary">
+          <f:render section="Header" optional="1" />
+          <f:render section="Main" optional="1" />
+        </callout>
+      </columns>
+    </row>
+    <row><columns class="spacer"></columns></row>
+  </f:then>
+
+  <f:else>
+			<container class="box ctype--{data.CType} first last">
+				<f:render section="Header" optional="1" />
+				<f:render section="Main" optional="1" arguments="{_all}"  />
+			</container>
+  </f:else>
+</f:if>
+<f:if condition="{data.linkToTop}">
+	<row class="top-link"><columns><a href="#"><f:translate extensionName="EmailTemplate" key="linkToTop" default="to top" /></a></columns></row>
+</f:if>
+<f:if condition="{data.frame_class} != 11">
+	<row><columns class="spacer"></columns></row>
+</f:if>
+
+
+</html>

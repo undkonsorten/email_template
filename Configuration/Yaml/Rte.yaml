@@ -1,0 +1,43 @@
+imports:
+  - { resource: "EXT:rte_ckeditor/Configuration/RTE/Processing.yaml" }
+  - { resource: "EXT:rte_ckeditor/Configuration/RTE/Editor/Base.yaml" }
+  # some necessary plugins, also needed for linkwizard of TYPO3
+  - { resource: "EXT:rte_ckeditor/Configuration/RTE/Editor/Plugins.yaml" }
+
+editor:
+  config:
+    contentsCss:
+    - EXT:email_template/Resources/Public/_Default/Css/Rte.css
+    # works only with ckeditor < 5
+    enterMode: 2
+
+    toolbarGroups:
+      - { name: clipboard, groups: [ clipboard, undo ] }
+      - { name: editing, groups: [ find, selection ] }
+      - { name: links }
+      - { name: insert, groups: [ horizontalrule, specialchar ] }
+      - { name: document, groups: [ mode ] }
+      - "/"
+      - { name: basicstyles, groups: [ basicstyles, align, cleanup ] }
+      - { name: paragraph, groups: [ list, blocks, quote ] }
+      - { name: tools }
+
+    removeButtons:
+      - Anchor
+      - Superscript
+      - Subscript
+      - Underline
+      - Strike
+      - Image
+      - Table
+
+buttons:
+  link:
+    properties:
+      class:
+        allowedClasses:
+          - button
+
+classes:
+  button:
+    name: "LLL:EXT:email_template/Resources/Private/Language/locallang_db.xlf:rte.link.button"

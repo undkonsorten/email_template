@@ -1,0 +1,6 @@
+# customsubcategory=10-pageTypes=LLL:EXT:email_template/Resources/Private/Language/locallang_db.xlf:constantEditor.customSubCategory.pageTypes
+
+plugin.tx_emailtemplate {
+    # cat=Email Template/10-pageTypes/0030; type=int+; label=Plain text typeNum: this value will be used for type
+    plainText.typeNum = 1485434634
+}

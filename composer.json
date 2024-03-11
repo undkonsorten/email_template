@@ -1,0 +1,37 @@
+{
+	"name": "undkonsorten/email-template",
+	"description": "Build table based E-Mail templates with Inky tags.",
+	"type": "typo3-cms-extension",
+	"require": {
+		"php": "^7.2 || ^7.4 || ^8.1",
+		"typo3/cms-core": "^9.5 || ^10.4 || ^11.5 || ^12.4",
+		"undkonsorten/html-mail-utility": "^0.0 || ^1"
+	},
+	"suggest": {
+
+	},
+	"license": "GPL-2.0+",
+	"authors": [
+		{
+			"name": "Felix Althaus",
+			"email": "felix.althaus@undkonsorten.com"
+		},
+		{
+			"name": "Karsten Nowak",
+			"email": "nowak@undkonsorten.com"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"Undkonsorten\\EmailTemplate\\": "Classes"
+		}
+	},
+	"extra": {
+		"typo3/cms": {
+			"extension-key": "email_template"
+		},
+		"branch-alias": {
+			"dev-main": "0.0.x-dev"
+		}
+	}
+}

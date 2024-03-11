@@ -1,0 +1,43 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+<f:section name="Header">
+    <f:render partial="Header" section="Main" arguments="{_all}" />
+</f:section>
+
+<f:section name="Main">
+    <row>
+        <columns class="text-wrap first last">
+            <f:for each="{menu}" as="page" iteration="iterator">
+                <f:for each="{page.content}" as="contentElement">
+									<f:if condition="{contentElement.data.CType} != 'div'">
+										<f:switch expression="{contentElement.data.header_layout}">
+											<f:case value="2">
+												<row class="menu-item">
+													<columns small="1" large="1"></columns>
+													<columns small="10" large="10" class="menu__item-columns"><a href="#c{contentElement.data.uid}">■ {contentElement.data.header}</a></columns>
+												</row>
+											</f:case>
+											<f:case value="3">
+												<row class="menu-item">
+													<columns small="2" large="2"></columns>
+													<columns small="9" large="9" class="menu__item-columns"><a href="#c{contentElement.data.uid}">■ {contentElement.data.header}</a></columns>
+												</row>
+											</f:case>
+											<f:case value="100">
+												<f:comment>Nothing to be seen here ;)</f:comment>
+											</f:case>
+											<f:defaultCase>
+												<row class="menu-item">
+													<columns small="12" large="12" class="menu__item-columns"><a href="#c{contentElement.data.uid}">■ {contentElement.data.header}</a></columns>
+												</row>
+											</f:defaultCase>
+										</f:switch>
+									</f:if>
+                </f:for>
+        </columns>
+    </row>
+
+    </f:for>
+</f:section>
+</html>

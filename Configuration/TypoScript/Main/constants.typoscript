@@ -1,0 +1,74 @@
+# customsubcategory=01-important=Important settings
+# customsubcategory=05-images=LLL:EXT:email_template/Resources/Private/Language/locallang_db.xlf:constantEditor.customSubCategory.images
+# customsubcategory=10-pageTypes=LLL:EXT:email_template/Resources/Private/Language/locallang_db.xlf:constantEditor.customSubCategory.pageTypes
+# customsubcategory=11-view=Paths to template/partial/layout folders
+
+plugin.tx_emailtemplate {
+    # cat=Email Template/10-pageTypes/0010; type=int+; label=HTML mail typeNum: this value will be used for HTML &type Attribute
+    htmlMail.typeNum = 1485434607
+    # cat=Email Template/10-pageTypes/0020; type=int; label=HTML on site typeNum: this value will be used for on site &type Attribute, defaults to 0
+    onSite.typeNum = 0
+    # cat=Email Template//0030; type=string; label=Default description: Fall back to this string if editor doesn‘t enter a description in page properties
+    defaultDescription =
+    # cat=Email Template/files/0050; type=string; label=CSS file: This file will be inlined in markup and included in on-site version
+    cssFile = EXT:email_template/Resources/Public/_Default/Css/foundation-emails.css
+    # cat=Email Template/files/0050; type=string; label=injectCss file: This file will be included as style rules in your email markup (suitable for pseudo elements and media queries), should be a subset of cssFile
+    injectCssFile = EXT:email_template/Resources/Public/_Default/Css/inject.css
+    # cat=Email Template//0060; type=string; label=Unsubscribe page: Set this to the uid of the page for unsubscribing.
+    settings.unsubscribe.page =
+    # cat=Email Template//0063; type=string; label=Section for unsubscribe link: Jump directly to the content element (unsubscribe form) on the unsubscribe page.
+    settings.unsubscribe.section =
+    # cat=Email Template//0070; type=int; label=Footer content pid: Fetch common content for footer from this page‘s col 0
+    settings.footerContent.page = 0
+
+    view {
+        page {
+            # cat=Email Template/11-view/0010; type=string; label=LayoutRootPath for newsletter page
+            layoutRootPath =
+            # cat=Email Template/11-view/0011; type=string; label=PartialRootPath for newsletter page
+            partialRootPath =
+            # cat=Email Template/11-view/0012; type=string; label=TemplateRootPath for newsletter page
+            templateRootPath =
+        }
+        content {
+            # cat=Email Template/11-view/0013; type=string; label=LayoutRootPath for newsletter content
+            layoutRootPath =
+            # cat=Email Template/11-view/0014; type=string; label=PartialRootPath for newsletter content
+            partialRootPath =
+            # cat=Email Template/11-view/0015; type=string; label=TemplateRootPath for newsletter content
+            templateRootPath =
+        }
+    }
+
+    # cat=Email Template/01-important/0010; type=string; label=Domain for absolute urls. With ending slash!
+    absRefPrefix =
+
+    settings {
+        # cat=Email Template/05-images/0010; type=string; label=Logo source: Use this as logo image in your HTML newsletter
+        logo.source = EXT:email_template/Resources/Public/_Default/Images/logo-uk-newsletter.png
+        # cat=Email Template/05-images/0020; type=string; label=Logo alternative: alt attribute for logo
+        logo.alternative = Logo
+        # cat=Email Template/05-images/0025; type=int; label=Override width for the logo (needed for outlook)
+        logo.overrideWidth = 548
+
+        # cat=Email Template/05-images/0205; type=string; label=Width of images spanning 4 cols: Image width in pixel, append "m" to set maximum width
+        images.cols4.width = 272m
+        # cat=Email Template/05-images/0206; type=string; label=Width of images spanning 6 cols: Image width in pixel, append "m" to set maximum width
+        images.cols6.width = 289m
+        # cat=Email Template/05-images/0207; type=string; label=Width of images spanning 12 cols: Image width in pixel, append "m" to set maximum width
+        images.cols12.width = 580m
+
+        # cat=Email Template/05-images/0210; type=string; label=Number of cols spanning left/right images
+        images.cols.leftRight = 4
+
+        #@todo: define 50/50 cols and add to template
+
+        # cat=Email Template/05-images/0220; type=int; label=Full width of the newletter template (from Inky)
+        layout.fullWidth = 580
+        # cat=Email Template/05-images/0221; type=int; label=Gutter width of the newletter template (from Inky)
+        layout.gutterWidth = 16
+        # cat=Email Template/05-images/0222; type=int; label=Number of columns of the newsletter grid (from Inky)
+        layout.cols = 12
+
+    }
+}

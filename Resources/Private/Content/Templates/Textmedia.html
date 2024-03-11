@@ -1,0 +1,81 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+<f:section name="Header">
+  <f:render partial="Header" section="Main" arguments="{_all}" />
+</f:section>
+
+<f:section name="Main">
+  <f:if condition="{files} && {data.tx_container_parent} == 0">
+    <f:then>
+      <f:switch expression="{data.imageorient}">
+        <f:comment>media above text</f:comment>
+        <f:defaultCase>
+					<row>
+						<columns small="12" large="12" class="figure-wrap first last">
+							<f:render section="files" arguments="{files:files,imageorient:data.imageorient}" />
+						</columns>
+					</row>
+          <row>
+            <columns small="12" large="12" class="text-wrap first last">
+							{data.bodytext -> f:format.html(parseFuncTSPath:'lib.parseFunc_RTE')}
+            </columns>
+          </row>
+				</f:defaultCase>
+
+        <f:comment>media beside text right</f:comment>
+        <f:case value="25">
+          <row>
+            <columns small="12" large="8" class="text-wrap first">
+              {data.bodytext -> f:format.html(parseFuncTSPath:'lib.parseFunc_RTE')}
+            </columns>
+            <columns small="12" large="4" class="figure-wrap last" valign="top">
+              <f:render section="files" arguments="{files:files,imageorient:data.imageorient}" />
+            </columns>
+          </row>
+        </f:case>
+
+        <f:comment>media beside text left (default></f:comment>
+				<f:case value="26">
+          <row>
+            <columns small="12" large="4" class="figure-wrap first">
+              <f:render section="files" arguments="{files:files,imageorient:data.imageorient}" />
+            </columns>
+            <columns small="12" large="8" class="text-wrap last">
+              {data.bodytext -> f:format.html(parseFuncTSPath:'lib.parseFunc_RTE')}
+            </columns>
+          </row>
+        </f:case>
+      </f:switch>
+    </f:then>
+    <f:else>
+			<f:if condition="{files} && {data.tx_container_parent} > 0">
+				<row>
+					<columns small="12" large="12" class="figure-wrap first last">
+						<f:render section="files" arguments="{files:files,imageorient:data.imageorient}" />
+					</columns>
+				</row>
+			</f:if>
+      <row>
+        <columns small="12" large="12" class="text-wrap first last">
+          {data.bodytext -> f:format.html(parseFuncTSPath:'lib.parseFunc_RTE')}
+        </columns>
+      </row>
+    </f:else>
+  </f:if>
+
+
+</f:section>
+
+<f:section name="files">
+  <f:if condition="{files}">
+    <f:if condition="{imageorient} === 'gallery'">
+      <f:then>
+        gallery not supported
+      </f:then>
+      <f:else>
+        <f:render partial="Media/Media" section="main" arguments="{files:files,imageorient:imageorient}" />
+      </f:else>
+    </f:if>
+  </f:if>
+</f:section>

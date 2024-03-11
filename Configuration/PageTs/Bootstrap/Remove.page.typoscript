@@ -1,0 +1,5 @@
+TCEFORM.tt_content {
+  background_color_class.disabled = 1
+  background_image.disabled = 1
+  background_image_options.disabled = 1
+}

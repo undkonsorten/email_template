@@ -1,0 +1,207 @@
+plugin.tx_emailtemplate {
+
+  # TypoScript object rendering the page
+  lib.page = FLUIDTEMPLATE
+  lib.page {
+    templateName = Mail
+    templateRootPaths {
+      0 = EXT:email_template/Resources/Private/Page/Templates/
+      30 = {$plugin.tx_emailtemplate.view.page.templateRootPath}
+    }
+
+    layoutRootPaths {
+      0 = EXT:email_template/Resources/Private/Page/Layouts/
+      30 = {$plugin.tx_emailtemplate.view.page.layoutRootPath}
+    }
+
+    partialRootPaths {
+      0 = EXT:email_template/Resources/Private/Page/Partials/
+      30 = {$plugin.tx_emailtemplate.view.page.partialRootPath}
+    }
+
+    settings {
+      layout = HtmlMail
+      onSite.typeNum = {$plugin.tx_emailtemplate.onSite.typeNum}
+      defaultDescription = {$plugin.tx_emailtemplate.defaultDescription}
+      footerContent.page = {$plugin.tx_emailtemplate.settings.footerContent.page}
+      cssFile = {$plugin.tx_emailtemplate.cssFile}
+      absRefPrefix = {$plugin.tx_emailtemplate.absRefPrefix}
+      logo.source = {$plugin.tx_emailtemplate.settings.logo.source}
+      logo.alternative = {$plugin.tx_emailtemplate.settings.logo.alternative}
+      logo.overrideWidth = {$plugin.tx_emailtemplate.settings.logo.overrideWidth}
+      headerImage.width = 560
+    }
+
+    variables {
+      unsubscribeLink = TEXT
+      unsubscribeLink {
+        typolink {
+          parameter = {$plugin.tx_emailtemplate.settings.unsubscribe.page}
+          section = {$plugin.tx_emailtemplate.settings.unsubscribe.section}
+          forceAbsoluteUrl = 1
+          returnLast = url
+        }
+      }
+    }
+
+    dataProcessing {
+      10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+      10 {
+        references.fieldName = media
+        as = pageMedia
+      }
+    }
+  }
+
+  # Typoscript object rendering a column
+  lib.column = CONTENT
+  lib.column {
+    table = tt_content
+    select {
+      where = colPos = {field:colPos}
+      where.insertData = 1
+      pidInList = this
+      pidInList.override.field = page
+    }
+
+    renderObj =< tt_content
+    renderObj {
+      text {
+        templateRootPaths {
+          0 = EXT:email_template/Resources/Private/Content/Templates/
+          30 = {$plugin.tx_emailtemplate.view.content.templateRootPath}
+        }
+
+        layoutRootPaths {
+          0 = EXT:email_template/Resources/Private/Content/Layouts/
+          30 = {$plugin.tx_emailtemplate.view.content.layoutRootPath}
+        }
+
+        partialRootPaths {
+          0 = EXT:email_template/Resources/Private/Content/Partials/
+          30 = {$plugin.tx_emailtemplate.view.content.partialRootPath}
+        }
+      }
+
+      textmedia < .text
+      textmedia.settings {
+        images.cols12.width = {$plugin.tx_emailtemplate.settings.images.cols12.width}
+        images.cols6.width = {$plugin.tx_emailtemplate.settings.images.cols6.width}
+        images.cols4.width = {$plugin.tx_emailtemplate.settings.images.cols4.width}
+      }
+
+      textpic < .textmedia
+      textpic.templateName = Textmedia
+      header < .text
+      div < .text
+      list < .text
+      menu_section < .text
+    }
+  }
+
+  # calculate with of left/right images depening on template width, gutter and image cols
+  # for Outlook expecting <img width> attribute
+  # Formula: imageWidth = (layout.fullWidth - layout.gutterWidth*2) / layout.cols * images.cols.leftRight - layout.gutterWidth/2
+  lib {
+    imageLeftRightOverrideWidthAttribute = TEXT
+    imageLeftRightOverrideWidthAttribute {
+      value = ({$plugin.tx_emailtemplate.settings.layout.fullWidth} - {$plugin.tx_emailtemplate.settings.layout.gutterWidth} * 2) / {$plugin.tx_emailtemplate.settings.layout.cols} * {$plugin.tx_emailtemplate.settings.images.cols.leftRight} - {$plugin.tx_emailtemplate.settings.layout.gutterWidth} / 2
+      # do the math!
+      prioriCalc = 1
+      # round up to next full int number
+      round.roundType = ceil
+    }
+
+    imageAboveOverrideWidthAttribute < .imageLeftRightOverrideWidthAttribute
+    imageAboveOverrideWidthAttribute.value = {$plugin.tx_emailtemplate.settings.layout.fullWidth} - {$plugin.tx_emailtemplate.settings.layout.gutterWidth} * 2
+  }
+}
+
+
+lib.fluidContent.settings {
+  media {
+    width = 580
+    height = 300
+  }
+}
+
+lib.parseFunc_RTE {
+  tags.a {
+    # wrap all links with class button with <button> tag for inky
+    postUserFunc = Undkonsorten\EmailTemplate\Rte\PostProcess->wrapButton
+    # You can define additional classes for the button here (e.g. radius, rounded, success), multiple classes space separated
+    # postUserFunc.additionalClasses = rounded
+    typolink {
+      forceAbsoluteUrl = 1
+    }
+  }
+  nonTypoTagStdWrap {
+    encapsLines {
+      encapsTagList = p
+      # remove p tag <p> and <br> are the same (just a new line) in outlook!
+      # It's necessary to only use <br> tag and no <p> tag to have the same view in outlook and other clients.
+      # with editor.config.enterMode: 2 in rte config (only ckeditor < 5) you have only br's.
+      # in ckeditor 5, editor must using SHIFT+ENTER to create br tags.
+      # next line removes the wrapping p which is automatically set by TYPO3
+      removeWrapping = 1
+    }
+  }
+}
+
+
+# Real HTML mail page object
+tx_emailtemplate_html = PAGE
+tx_emailtemplate_html {
+  typeNum = {$plugin.tx_emailtemplate.htmlMail.typeNum}
+
+  # All markup comes from fluid!
+  config.disableAllHeaderCode = 1
+
+  # Make all links absolute
+  config.absRefPrefix = {$plugin.tx_emailtemplate.absRefPrefix}
+  config.baseURL >
+
+  # This is needed for local anchors in emails
+  config.prefixLocalAnchors = 0
+
+  # No debug or <!-- Parsetime: -->
+  config.debug = 0
+
+  10 =< plugin.tx_emailtemplate.lib.page
+  10.variables {
+    injectCss = USER
+    injectCss {
+      userFunc = Undkonsorten\EmailTemplate\User\FileContent->getContent
+      file = {$plugin.tx_emailtemplate.injectCssFile}
+    }
+  }
+}
+
+# on site HTML page object
+tx_emailtemplate_onSite = PAGE
+tx_emailtemplate_onSite {
+  typeNum = {$plugin.tx_emailtemplate.onSite.typeNum}
+
+  # Make all links absolute
+  config.absRefPrefix = /
+  config.baseURL >
+
+  # We need our css included as we do not inline
+  includeCSS.newsletter = {$plugin.tx_emailtemplate.cssFile}
+
+  headerData {
+    10 = TEXT
+    10.value = <meta name="viewport" content="width=device-width, initial-scale=1">
+  }
+
+  10 =< plugin.tx_emailtemplate.lib.page
+  10.settings {
+    layout = OnSite
+  }
+
+}
+
+lib.contentElement {
+  templateRootPaths.300 = EXT:email_template/Resources/Private/Content/Templates/
+  partialRootPaths.300 = EXT:email_template/Resources/Private/Content/Partials/
+}

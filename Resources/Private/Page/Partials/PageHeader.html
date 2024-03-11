@@ -1,0 +1,35 @@
+<!--suppress HtmlUnknownTag -->
+<html xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+			xmlns:m="http://typo3.org/ns/Undkonsorten/EmailTemplate/ViewHelpers"
+			data-namespace-typo3-fluid="true" lang="en">
+
+<f:if condition="{settings.layout} != 'OnSite'">
+	<f:then>
+		<row><columns class="spacer"></columns></row>
+		<f:render partial="ReadOnlineLink" section="main" arguments="{_all}" />
+	</f:then>
+	<f:else>
+		<row><columns class="spacer"></columns></row>
+	</f:else>
+</f:if>
+<row class="page-header__inner">
+	<columns small="12" large="12" class="first last">
+		<m:image class="logo" src="{settings.logo.source}" alt="{settings.logo.alternative}" title="{file.title}"
+							 width="{settings.logo.overrideWidth}"
+							 overrideWidthAttribute="{settings.logo.overrideWidth}"
+		/>
+	</columns>
+</row>
+
+<f:if condition="{pageMedia}">
+	<f:render partial="HeaderImage" arguments="{image:pageMedia.0}" />
+</f:if>
+
+<f:if condition="{data.title}">
+	<row class="edition-line highlight">
+		<columns small="12" large="6" class="first last">
+			<strong>{data.title}</strong>
+		</columns>
+	</row>
+	<row><columns class="spacer"></columns></row>
+</f:if>

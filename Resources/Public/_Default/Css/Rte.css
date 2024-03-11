@@ -1,0 +1,8 @@
+/* RTE CSS for newsletter-specific things in TYPO3 Backend */
+
+a.button {
+	color: white;
+	background: #1D420F;
+	padding: 15px;
+	display: inline-block;
+}

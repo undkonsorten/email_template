@@ -1,0 +1,16 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+      xmlns:mu="http://typo3.org/ns/Undkonsorten/HtmlMailUtility/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<f:format.raw><mu:format.inky>
+  <table class="body">
+    <tr>
+      <td class="center" align="center" valign="top">
+          <f:render section="head" optional="1"/>
+          <f:render section="main"/>
+          <f:render section="footer" optional="1"/>
+      </td>
+    </tr>
+  </table>
+</mu:format.inky></f:format.raw>
+</html>
