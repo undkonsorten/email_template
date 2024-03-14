@@ -5,7 +5,7 @@
 	"require": {
 		"php": "^7.2 || ^7.4 || ^8.1",
 		"typo3/cms-core": "^9.5 || ^10.4 || ^11.5 || ^12.4",
-		"undkonsorten/html-mail-utility": "^0.0 || ^1"
+		"undkonsorten/html-mail-utility": "^1"
 	},
 	"suggest": {
 
@@ -31,7 +31,7 @@
 			"extension-key": "email_template"
 		},
 		"branch-alias": {
-			"dev-main": "0.0.x-dev"
+			"dev-main": "1.0.x-dev"
 		}
 	}
 }
