@@ -124,6 +124,57 @@ The newsletter can display the following content elements
 * Divider (for a horizontal divider between the content elements)
 * Plugins
 
+#### Add rendering of your own content elements or other plugins
+
+To add rendering for your own CTypes or Plugins you need to do following steps in general:
+
+* For plugins (e.g. news) include the TypoScript configuration of the extension (in your SitePackage or directly in the
+DB in sys_template data)
+* add the new CType to your page TS-Config if you are using the page TS configuration from `email_template`.
+**Add this after the include of page TS configuration from `email_template`!**
+
+```typo3_typoscript
+# page ts example to add news plugin type to the allowed items
+TCEFORM.tt_content {
+  # Define used CTypes in newsletter.
+  CType {
+    keepItems := addToList(news_newsselectedlist)
+  }
+}
+```
+
+* extend the `plugin.tx_emailtemplate.lib.column.renderObj` TS-Object. Copy `text` object to get all the default
+properties from `email_template`
+
+````typo3_typoscript
+# example for news plugin
+plugin.tx_emailtemplate {
+  lib.column {
+    renderObj {
+      news_newsselectedlist < .text
+    }
+  }
+}
+````
+For Plugins the `Generic.html` template in `project/vendor/undkonsorten/email-template/Resources/Private/Content/Templates`
+is used.
+
+* Usage of other template files for Extensions/Plugins like news can you define in normal way. Set new paths within the
+constants or setup of the Extensions.
+
+* If you want to use your own template files for custom CTypes (not Plugins/Extensions) set paths in TS Constants
+and add your own template files for the CTypes to your SitePackage. Using Constant Editor is possible for this.
+
+```typo3_typoscript
+plugin.tx_emailtemplate {
+    view.content {
+        templateRootPath =
+    }
+}
+```
+
+
 ## Test your template:
 
+* [Testi@](https://testi.at)
 * [Chrome Extension Testi](https://chrome.google.com/webstore/detail/testi-live-email-testing/hbgeikbbpfjgcicclnjcokjapbgkkfkd)
