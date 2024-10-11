@@ -4,7 +4,7 @@
 
 **Dependencies:**
 
-* TYPO3: Version 11.5 or 12.4
+* TYPO3: Version 11.5, 12.4, 13.3
 * EXT: html_mail_utility
 
 ## What does it do?
