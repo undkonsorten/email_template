@@ -5,7 +5,7 @@
 	"require": {
 		"php": "^7.2 || ^7.4 || ^8.1",
 		"typo3/cms-core": "^9.5 || ^10.4 || ^11.5 || ^12.4 || ^13.3",
-		"undkonsorten/html-mail-utility": "^1"
+		"undkonsorten/html-mail-utility": "^1 || ^2"
 	},
 	"suggest": {
 
