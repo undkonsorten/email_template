@@ -25,14 +25,14 @@ namespace Undkonsorten\EmailTemplate\ViewHelpers;
 class ImageViewHelper extends \Undkonsorten\HtmlMailUtility\ViewHelpers\ImageViewHelper
 {
 
-    public function initializeArguments()
+    public function initializeArguments(): void
     {
         parent::initializeArguments();
         $this->registerArgument('overrideWidthAttribute', 'string', 'override width attribute with this value');
         $this->registerArgument('overrideHeightAttribute', 'string', 'override height attribute with this value');
     }
 
-    public function render()
+    public function render(): string
     {
         if ($this->hasArgument('overrideWidthAttribute')) {
             $this->tag->addAttribute('width', $this->arguments['overrideWidthAttribute']);
