@@ -49,9 +49,9 @@ class PostProcess
      *          Separate multiple classes with space.
      * @return string The <a>-tag wrapped with <button>-tag
      */
-    public function wrapButton(string $content, array $conf = null): string
+    public function wrapButton(string $content, ?array $conf = null): string
     {
-        $conf = $conf ?? [];
+        $conf ??= [];
         $className = $conf['className'] ?? 'button';
         $attributes = GeneralUtility::get_tag_attributes($content);
         if (isset($attributes['class']) && in_array($className,
