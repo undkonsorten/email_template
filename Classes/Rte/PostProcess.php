@@ -20,6 +20,7 @@ namespace Undkonsorten\EmailTemplate\Rte;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
+use TYPO3\CMS\Core\Attribute\AsAllowedCallable;
 
 /**
  * Class PostProcess
@@ -49,6 +50,7 @@ class PostProcess
      *          Separate multiple classes with space.
      * @return string The <a>-tag wrapped with <button>-tag
      */
+    #[AsAllowedCallable]
     public function wrapButton(string $content, ?array $conf = null): string
     {
         $conf ??= [];
