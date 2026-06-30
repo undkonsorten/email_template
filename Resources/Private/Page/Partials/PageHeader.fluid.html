@@ -3,7 +3,7 @@
 			xmlns:m="http://typo3.org/ns/Undkonsorten/EmailTemplate/ViewHelpers"
 			data-namespace-typo3-fluid="true" lang="en">
 
-<f:if condition="{settings.layout} != 'OnSite'">
+<f:if condition="{pageLayout} != 'OnSite'">
 	<f:then>
 		<row><columns class="spacer"></columns></row>
 		<f:render partial="ReadOnlineLink" section="main" arguments="{_all}" />
@@ -14,9 +14,9 @@
 </f:if>
 <row class="page-header__inner">
 	<columns small="12" large="12" class="first last">
-		<m:image class="logo" src="{settings.logo.source}" alt="{settings.logo.alternative}" title="{file.title}"
-							 width="{settings.logo.overrideWidth}"
-							 overrideWidthAttribute="{settings.logo.overrideWidth}"
+		<m:image class="logo" src="{settings.plugin.tx_emailtemplate.settings.logo.source}" alt="{settings.plugin.tx_emailtemplate.settings.logo.alternative}" title="{file.title}"
+							 width="{settings.plugin.tx_emailtemplate.settings.logo.overrideWidth}"
+							 overrideWidthAttribute="{settings.plugin.tx_emailtemplate.settings.logo.overrideWidth}"
 		/>
 	</columns>
 </row>

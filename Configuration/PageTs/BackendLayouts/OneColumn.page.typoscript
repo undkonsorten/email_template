@@ -14,11 +14,22 @@ mod.web_layout.BackendLayouts {
                     1 {
                         columns {
                             1 {
+                                identifier = main
                                 name = LLL:EXT:email_template/Resources/Private/Language/locallang_db.xlf:beLayout.oneColumn.col0
                                 colPos = 0
                             }
                         }
                     }
+                  2 {
+                    columns {
+                      1 {
+                        identifier = footer
+                        name = Footer veerbt
+                        colPos = 10
+                        slideMode = slide
+                      }
+                    }
+                  }
                 }
             }
         }

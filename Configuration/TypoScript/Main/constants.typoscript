@@ -18,18 +18,8 @@ plugin.tx_emailtemplate {
     settings.unsubscribe.page =
     # cat=Email Template//0063; type=string; label=Section for unsubscribe link: Jump directly to the content element (unsubscribe form) on the unsubscribe page.
     settings.unsubscribe.section =
-    # cat=Email Template//0070; type=int; label=Footer content pid: Fetch common content for footer from this page‘s col 0
-    settings.footerContent.page = 0
 
     view {
-        page {
-            # cat=Email Template/11-view/0010; type=string; label=LayoutRootPath for newsletter page
-            layoutRootPath =
-            # cat=Email Template/11-view/0011; type=string; label=PartialRootPath for newsletter page
-            partialRootPath =
-            # cat=Email Template/11-view/0012; type=string; label=TemplateRootPath for newsletter page
-            templateRootPath =
-        }
         content {
             # cat=Email Template/11-view/0013; type=string; label=LayoutRootPath for newsletter content
             layoutRootPath =

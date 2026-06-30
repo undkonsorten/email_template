@@ -1,38 +1,42 @@
+lib.contentElement >
+lib.contentElement = FLUIDTEMPLATE
+lib.contentElement {
+  dataProcessing {
+    1782832710 = record-transformation
+  }
+  templateName = Default
+  templateRootPaths {
+    0 = EXT:email_template/Resources/Private/Content/Templates/
+  }
+  partialRootPaths {
+    0 = EXT:email_template/Resources/Private/Content/Partials/
+  }
+  layoutRootPaths {
+    0 = EXT:email_template/Resources/Private/Content/Layouts/
+  }
+}
+
 plugin.tx_emailtemplate {
 
   # TypoScript object rendering the page
-  lib.page = FLUIDTEMPLATE
+  lib.page = PAGEVIEW
   lib.page {
-    templateName = Mail
-    templateRootPaths {
-      0 = EXT:email_template/Resources/Private/Page/Templates/
-      30 = {$plugin.tx_emailtemplate.view.page.templateRootPath}
+    paths {
+      0 = EXT:email_template/Resources/Private/Page/
     }
 
-    layoutRootPaths {
-      0 = EXT:email_template/Resources/Private/Page/Layouts/
-      30 = {$plugin.tx_emailtemplate.view.page.layoutRootPath}
-    }
-
-    partialRootPaths {
-      0 = EXT:email_template/Resources/Private/Page/Partials/
-      30 = {$plugin.tx_emailtemplate.view.page.partialRootPath}
-    }
 
     settings {
-      layout = HtmlMail
+
       onSite.typeNum = {$plugin.tx_emailtemplate.onSite.typeNum}
       defaultDescription = {$plugin.tx_emailtemplate.defaultDescription}
-      footerContent.page = {$plugin.tx_emailtemplate.settings.footerContent.page}
-      cssFile = {$plugin.tx_emailtemplate.cssFile}
       absRefPrefix = {$plugin.tx_emailtemplate.absRefPrefix}
-      logo.source = {$plugin.tx_emailtemplate.settings.logo.source}
-      logo.alternative = {$plugin.tx_emailtemplate.settings.logo.alternative}
-      logo.overrideWidth = {$plugin.tx_emailtemplate.settings.logo.overrideWidth}
       headerImage.width = 560
     }
 
     variables {
+      pageLayout = TEXT
+      pageLayout.value = HtmlMail
       unsubscribeLink = TEXT
       unsubscribeLink {
         typolink {
@@ -45,57 +49,12 @@ plugin.tx_emailtemplate {
     }
 
     dataProcessing {
-      10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
-      10 {
+      10 = page-content
+      20 = files
+      20 {
         references.fieldName = media
         as = pageMedia
       }
-    }
-  }
-
-  # Typoscript object rendering a column
-  lib.column = CONTENT
-  lib.column {
-    table = tt_content
-    select {
-      where = colPos = {field:colPos}
-      where.insertData = 1
-      pidInList = this
-      pidInList.override.field = page
-    }
-
-    renderObj =< tt_content
-    renderObj {
-      text {
-        templateRootPaths {
-          0 = EXT:email_template/Resources/Private/Content/Templates/
-          30 = {$plugin.tx_emailtemplate.view.content.templateRootPath}
-        }
-
-        layoutRootPaths {
-          0 = EXT:email_template/Resources/Private/Content/Layouts/
-          30 = {$plugin.tx_emailtemplate.view.content.layoutRootPath}
-        }
-
-        partialRootPaths {
-          0 = EXT:email_template/Resources/Private/Content/Partials/
-          30 = {$plugin.tx_emailtemplate.view.content.partialRootPath}
-        }
-      }
-
-      textmedia < .text
-      textmedia.settings {
-        images.cols12.width = {$plugin.tx_emailtemplate.settings.images.cols12.width}
-        images.cols6.width = {$plugin.tx_emailtemplate.settings.images.cols6.width}
-        images.cols4.width = {$plugin.tx_emailtemplate.settings.images.cols4.width}
-      }
-
-      textpic < .textmedia
-      textpic.templateName = Textmedia
-      header < .text
-      div < .text
-      list < .text
-      menu_section < .text
     }
   }
 
@@ -195,8 +154,8 @@ tx_emailtemplate_onSite {
   }
 
   10 =< plugin.tx_emailtemplate.lib.page
-  10.settings {
-    layout = OnSite
+  10.variables {
+    pageLayout.value = OnSite
   }
 
 }
@@ -204,4 +163,30 @@ tx_emailtemplate_onSite {
 lib.contentElement {
   templateRootPaths.300 = EXT:email_template/Resources/Private/Content/Templates/
   partialRootPaths.300 = EXT:email_template/Resources/Private/Content/Partials/
+}
+
+tt_content {
+  text =< lib.contentElement
+  text.templateName = Text
+
+  textmedia < .text
+  textmedia.settings {
+    images.cols12.width = {$plugin.tx_emailtemplate.settings.images.cols12.width}
+    images.cols6.width = {$plugin.tx_emailtemplate.settings.images.cols6.width}
+    images.cols4.width = {$plugin.tx_emailtemplate.settings.images.cols4.width}
+  }
+  textpic < .textmedia
+  textpic.templateName = Textmedia
+
+  header < .text
+  header.templateName = Header
+
+  div < .text
+  div.templateName = div
+
+  list < .text
+  list.templateName = list
+
+  menu_section < .text
+  menu_section.templateName = MenuSection
 }

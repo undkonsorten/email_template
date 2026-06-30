@@ -54,6 +54,6 @@ TCEFORM.tt_content {
   # Define used CTypes in newsletter.
   CType {
     removeItems := removeFromList(menu_section)
-    keepItems = menu_section, header, textmedia, div
+    keepItems = menu_section, header, textmedia, div, text
   }
 }
