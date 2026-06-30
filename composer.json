@@ -4,7 +4,7 @@
 	"type": "typo3-cms-extension",
 	"require": {
 		"php": "^7.2 || ^7.4 || ^8.1",
-		"typo3/cms-core": "^9.5 || ^10.4 || ^11.5 || ^12.4 || ^13.3",
+		"typo3/cms-core": "^9.5 || ^10.4 || ^11.5 || ^12.4 || ^13.3 || ^14.3",
 		"undkonsorten/html-mail-utility": "^1 || ^2"
 	},
 	"suggest": {
@@ -31,7 +31,8 @@
 			"extension-key": "email_template"
 		},
 		"branch-alias": {
-			"dev-main": "1.1.x-dev"
+			"dev-main": "1.1.x-dev",
+			"dev-typo3-14": "1.2.x-dev"
 		}
 	}
 }
