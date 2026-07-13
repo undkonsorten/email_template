@@ -21,6 +21,7 @@ use TYPO3\CMS\Core\Resource\Exception\InvalidFileNameException;
 use TYPO3\CMS\Core\Resource\Exception\InvalidPathException;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Frontend\Resource\FilePathSanitizer;
+use TYPO3\CMS\Core\Attribute\AsAllowedCallable;
 
 class FileContent
 {
@@ -35,6 +36,7 @@ class FileContent
      * @throws InvalidFileNameException
      * @throws InvalidPathException
      */
+    #[AsAllowedCallable]
     public function getContent(string $content, array $conf): string
     {
         $file = GeneralUtility::makeInstance(FilePathSanitizer::class)->sanitize($conf['file']);
