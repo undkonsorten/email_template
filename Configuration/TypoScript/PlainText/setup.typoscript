@@ -14,5 +14,7 @@ tx_emailtemplate_plaintext {
         absRefPrefix = {$plugin.tx_emailtemplate.absRefPrefix}
     }
     10 =< plugin.tx_emailtemplate.lib.page
-    10.settings.layout = PlainText
+    10.variables {
+      pageLayout.value = PlainText
+    }
 }
