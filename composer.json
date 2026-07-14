@@ -5,6 +5,7 @@
 	"require": {
 		"php": "^8.1",
 		"typo3/cms-core": "^14.3",
+		"typo3/cms-fluid-styled-content": "^14.3",
 		"undkonsorten/html-mail-utility": "^1 || ^2"
 	},
 	"suggest": {
