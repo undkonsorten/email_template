@@ -6,14 +6,14 @@
 </f:section>
 
 <f:section name="Main">
-  <f:if condition="{files} && {data.tx_container_parent} == 0">
+  <f:if condition="{record.assets} && {data.tx_container_parent} == 0">
     <f:then>
       <f:switch expression="{data.imageorient}">
         <f:comment>media above text</f:comment>
         <f:defaultCase>
 					<row>
 						<columns small="12" large="12" class="figure-wrap first last">
-							<f:render section="files" arguments="{files:files,imageorient:data.imageorient}" />
+							<f:render section="files" arguments="{files:record.assets,imageorient:data.imageorient}" />
 						</columns>
 					</row>
           <row>
@@ -30,7 +30,7 @@
               {data.bodytext -> f:format.html(parseFuncTSPath:'lib.parseFunc_RTE')}
             </columns>
             <columns small="12" large="4" class="figure-wrap last" valign="top">
-              <f:render section="files" arguments="{files:files,imageorient:data.imageorient}" />
+              <f:render section="files" arguments="{files:record.assets,imageorient:data.imageorient}" />
             </columns>
           </row>
         </f:case>
@@ -39,7 +39,7 @@
 				<f:case value="26">
           <row>
             <columns small="12" large="4" class="figure-wrap first">
-              <f:render section="files" arguments="{files:files,imageorient:data.imageorient}" />
+              <f:render section="files" arguments="{files:record.assets,imageorient:data.imageorient}" />
             </columns>
             <columns small="12" large="8" class="text-wrap last">
               {data.bodytext -> f:format.html(parseFuncTSPath:'lib.parseFunc_RTE')}
@@ -49,10 +49,10 @@
       </f:switch>
     </f:then>
     <f:else>
-			<f:if condition="{files} && {data.tx_container_parent} > 0">
+			<f:if condition="{record.assets} && {data.tx_container_parent} > 0">
 				<row>
 					<columns small="12" large="12" class="figure-wrap first last">
-						<f:render section="files" arguments="{files:files,imageorient:data.imageorient}" />
+						<f:render section="files" arguments="{files:record.assets,imageorient:data.imageorient}" />
 					</columns>
 				</row>
 			</f:if>

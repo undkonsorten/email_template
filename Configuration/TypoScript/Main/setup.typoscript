@@ -167,13 +167,13 @@ tt_content {
   text.templateName = Text
 
   textmedia < .text
+  textmedia.templateName = Textmedia
   textmedia.settings {
     images.cols12.width = {$plugin.tx_emailtemplate.settings.images.cols12.width}
     images.cols6.width = {$plugin.tx_emailtemplate.settings.images.cols6.width}
     images.cols4.width = {$plugin.tx_emailtemplate.settings.images.cols4.width}
   }
   textpic < .textmedia
-  textpic.templateName = Textmedia
 
   header < .text
   header.templateName = Header
