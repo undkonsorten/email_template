@@ -11,7 +11,8 @@ tx_emailtemplate_plaintext {
                 replace = 1
             }
         }
-        absRefPrefix = {$plugin.tx_emailtemplate.absRefPrefix}
+      # Make all links absolute
+      forceAbsoluteUrls = 1
     }
     10 =< plugin.tx_emailtemplate.lib.page
     10.variables {

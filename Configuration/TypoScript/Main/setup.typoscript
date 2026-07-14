@@ -30,7 +30,6 @@ plugin.tx_emailtemplate {
 
       onSite.typeNum = {$plugin.tx_emailtemplate.onSite.typeNum}
       defaultDescription = {$plugin.tx_emailtemplate.defaultDescription}
-      absRefPrefix = {$plugin.tx_emailtemplate.absRefPrefix}
       headerImage.width = 560
     }
 
@@ -117,8 +116,7 @@ tx_emailtemplate_html {
   config.disableAllHeaderCode = 1
 
   # Make all links absolute
-  config.absRefPrefix = {$plugin.tx_emailtemplate.absRefPrefix}
-  config.baseURL >
+  config.forceAbsoluteUrls = 1
 
   # This is needed for local anchors in emails
   config.prefixLocalAnchors = 0
@@ -142,8 +140,7 @@ tx_emailtemplate_onSite {
   typeNum = {$plugin.tx_emailtemplate.onSite.typeNum}
 
   # Make all links absolute
-  config.absRefPrefix = /
-  config.baseURL >
+  config.forceAbsoluteUrls = 1
 
   # We need our css included as we do not inline
   includeCSS.newsletter = {$plugin.tx_emailtemplate.cssFile}
