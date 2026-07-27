@@ -89,9 +89,6 @@ lib.parseFunc_RTE {
     postUserFunc = Undkonsorten\EmailTemplate\Rte\PostProcess->wrapButton
     # You can define additional classes for the button here (e.g. radius, rounded, success), multiple classes space separated
     # postUserFunc.additionalClasses = rounded
-    typolink {
-      forceAbsoluteUrl = 1
-    }
   }
   nonTypoTagStdWrap {
     encapsLines {
