@@ -18,7 +18,7 @@
 					</row>
           <row>
             <columns small="12" large="12" class="text-wrap first last">
-							{data.bodytext -> f:format.html(parseFuncTSPath:'lib.parseFunc_RTE')}
+							{record -> f:render.text(field: 'bodytext')}
             </columns>
           </row>
 				</f:defaultCase>
@@ -27,7 +27,7 @@
         <f:case value="25">
           <row>
             <columns small="12" large="8" class="text-wrap first">
-              {data.bodytext -> f:format.html(parseFuncTSPath:'lib.parseFunc_RTE')}
+              {record -> f:render.text(field: 'bodytext')}
             </columns>
             <columns small="12" large="4" class="figure-wrap last" valign="top">
               <f:render section="files" arguments="{files:record.assets,imageorient:data.imageorient}" />
@@ -42,7 +42,7 @@
               <f:render section="files" arguments="{files:record.assets,imageorient:data.imageorient}" />
             </columns>
             <columns small="12" large="8" class="text-wrap last">
-              {data.bodytext -> f:format.html(parseFuncTSPath:'lib.parseFunc_RTE')}
+              {record -> f:render.text(field: 'bodytext')}
             </columns>
           </row>
         </f:case>
@@ -58,7 +58,7 @@
 			</f:if>
       <row>
         <columns small="12" large="12" class="text-wrap first last">
-          {data.bodytext -> f:format.html(parseFuncTSPath:'lib.parseFunc_RTE')}
+          {record -> f:render.text(field: 'bodytext')}
         </columns>
       </row>
     </f:else>
