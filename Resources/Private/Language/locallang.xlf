@@ -1,34 +1,45 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2016-12-08T11:13:35Z" product-name="email_template">
-		<header/>
-		<body>
-            <trans-unit id="readOnlineLinkPrepend" xml:space="preserve">
-                <source>If this newsletter is not displayed properly, please </source>
-            </trans-unit>
-            <trans-unit id="readOnlineLink" xml:space="preserve">
-                <source>click here</source>
-            </trans-unit>
-            <trans-unit id="readOnlineLinkAppend" xml:space="preserve">
-                <source>.</source>
-            </trans-unit>
-            <trans-unit id="unsubscribeLinkPrepend" xml:space="preserve">
-                <source>If you don't want to receive our newsletter anymore, </source>
-            </trans-unit>
-            <trans-unit id="unsubscribeLink" xml:space="preserve">
-                <source>please unsubcribe here</source>
-            </trans-unit>
-            <trans-unit id="unsubscribeLinkAppend" xml:space="preserve">
-                <source>.</source>
-            </trans-unit>
-
-			<trans-unit id="date.format" xml:space="preserve">
-                <source>Y/m/d</source>
-            </trans-unit>
-
-			<trans-unit id="linkToTop">
-                <source>⬆ to top</source>
-            </trans-unit>
-		</body>
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en">
+	<file id="f1">
+		<unit id="readOnlineLinkPrepend" xml:space="preserve">
+			<segment>
+				<source>If this newsletter is not displayed properly, please </source>
+			</segment>
+		</unit>
+		<unit id="readOnlineLink" xml:space="preserve">
+			<segment>
+				<source>click here</source>
+			</segment>
+		</unit>
+		<unit id="readOnlineLinkAppend" xml:space="preserve">
+			<segment>
+				<source>.</source>
+			</segment>
+		</unit>
+		<unit id="unsubscribeLinkPrepend" xml:space="preserve">
+			<segment>
+				<source>If you don't want to receive our newsletter anymore, </source>
+			</segment>
+		</unit>
+		<unit id="unsubscribeLink" xml:space="preserve">
+			<segment>
+				<source>please unsubcribe here</source>
+			</segment>
+		</unit>
+		<unit id="unsubscribeLinkAppend" xml:space="preserve">
+			<segment>
+				<source>.</source>
+			</segment>
+		</unit>
+		<unit id="date.format" xml:space="preserve">
+			<segment>
+				<source>Y/m/d</source>
+			</segment>
+		</unit>
+		<unit id="linkToTop">
+			<segment>
+				<source>⬆ to top</source>
+			</segment>
+		</unit>
 	</file>
 </xliff>

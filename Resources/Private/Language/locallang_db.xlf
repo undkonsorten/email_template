@@ -1,79 +1,110 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2016-12-08T11:13:35Z" product-name="email_template">
-		<header/>
-		<body>
-            <trans-unit id="beLayout.oneColumn.title">
-                <source>Newsletter one column</source>
-            </trans-unit>
-            <trans-unit id="beLayout.oneColumn.col0">
-                <source>Main column</source>
-            </trans-unit>
-
-            <trans-unit id="beLayout.twoColumns.title">
-                <source>Newsletter two column</source>
-            </trans-unit>
-            <trans-unit id="beLayout.twoColumns.col0">
-                <source>Main column</source>
-            </trans-unit>
-            <trans-unit id="beLayout.twoColumns.col2">
-                <source>Sidebar</source>
-            </trans-unit>
-
-            <trans-unit id="beLayout.oneColumnAndSubSections.title">
-                <source>Main column and Sub-Sections</source>
-            </trans-unit>
-            <trans-unit id="beLayout.oneColumnAndSubSections.col0">
-                <source>Main column</source>
-            </trans-unit>
-            <trans-unit id="beLayout.oneColumnAndSubSections.col1">
-                <source>Sub-Section left</source>
-            </trans-unit>
-            <trans-unit id="beLayout.oneColumnAndSubSections.col2">
-                <source>Sub-Section right</source>
-            </trans-unit>
-
-            <trans-unit id="tt_content.layout.245">
-                <source>Callout</source>
-            </trans-unit>
-
-            <trans-unit id="tt_content.frame_class.default">
-                <source>Default</source>
-            </trans-unit>
-            <trans-unit id="tt_content.frame_class.no_space_after">
-                <source>No space after</source>
-            </trans-unit>
-
-            <trans-unit id="rte.link.button">
-                <source>Button</source>
-            </trans-unit>
-            <trans-unit id="RTE.h2.label">
-                <source>Header 2</source>
-            </trans-unit>
-            <trans-unit id="RTE.h3.label">
-                <source>Header 3</source>
-            </trans-unit>
-            <trans-unit id="RTE.h4.label">
-                <source>Header 4</source>
-            </trans-unit>
-            <trans-unit id="RTE.h5.label">
-                <source>Header 5</source>
-            </trans-unit>
-
-
-            <trans-unit id="tt_content.imageorient.235">
-                <source>Image left of text 50/50</source>
-            </trans-unit>
-            <trans-unit id="tt_content.imageorient.236">
-                <source>Image right of text 50/50</source>
-            </trans-unit>
-
-            <trans-unit id="constantEditor.customSubCategory.images">
-                <source>Images</source>
-            </trans-unit>
-            <trans-unit id="constantEditor.customSubCategory.pageTypes">
-                <source>Page types</source>
-            </trans-unit>
-		</body>
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en">
+	<file id="f1">
+		<unit id="beLayout.oneColumn.title">
+			<segment>
+				<source>Newsletter one column</source>
+			</segment>
+		</unit>
+		<unit id="beLayout.oneColumn.col0">
+			<segment>
+				<source>Main column</source>
+			</segment>
+		</unit>
+		<unit id="beLayout.twoColumns.title">
+			<segment>
+				<source>Newsletter two column</source>
+			</segment>
+		</unit>
+		<unit id="beLayout.twoColumns.col0">
+			<segment>
+				<source>Main column</source>
+			</segment>
+		</unit>
+		<unit id="beLayout.twoColumns.col2">
+			<segment>
+				<source>Sidebar</source>
+			</segment>
+		</unit>
+		<unit id="beLayout.oneColumnAndSubSections.title">
+			<segment>
+				<source>Main column and Sub-Sections</source>
+			</segment>
+		</unit>
+		<unit id="beLayout.oneColumnAndSubSections.col0">
+			<segment>
+				<source>Main column</source>
+			</segment>
+		</unit>
+		<unit id="beLayout.oneColumnAndSubSections.col1">
+			<segment>
+				<source>Sub-Section left</source>
+			</segment>
+		</unit>
+		<unit id="beLayout.oneColumnAndSubSections.col2">
+			<segment>
+				<source>Sub-Section right</source>
+			</segment>
+		</unit>
+		<unit id="tt_content.layout.245">
+			<segment>
+				<source>Callout</source>
+			</segment>
+		</unit>
+		<unit id="tt_content.frame_class.default">
+			<segment>
+				<source>Default</source>
+			</segment>
+		</unit>
+		<unit id="tt_content.frame_class.no_space_after">
+			<segment>
+				<source>No space after</source>
+			</segment>
+		</unit>
+		<unit id="rte.link.button">
+			<segment>
+				<source>Button</source>
+			</segment>
+		</unit>
+		<unit id="RTE.h2.label">
+			<segment>
+				<source>Header 2</source>
+			</segment>
+		</unit>
+		<unit id="RTE.h3.label">
+			<segment>
+				<source>Header 3</source>
+			</segment>
+		</unit>
+		<unit id="RTE.h4.label">
+			<segment>
+				<source>Header 4</source>
+			</segment>
+		</unit>
+		<unit id="RTE.h5.label">
+			<segment>
+				<source>Header 5</source>
+			</segment>
+		</unit>
+		<unit id="tt_content.imageorient.235">
+			<segment>
+				<source>Image left of text 50/50</source>
+			</segment>
+		</unit>
+		<unit id="tt_content.imageorient.236">
+			<segment>
+				<source>Image right of text 50/50</source>
+			</segment>
+		</unit>
+		<unit id="constantEditor.customSubCategory.images">
+			<segment>
+				<source>Images</source>
+			</segment>
+		</unit>
+		<unit id="constantEditor.customSubCategory.pageTypes">
+			<segment>
+				<source>Page types</source>
+			</segment>
+		</unit>
 	</file>
 </xliff>
