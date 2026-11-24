@@ -25,10 +25,10 @@
 	<f:render partial="HeaderImage" arguments="{image:pageMedia.0}" />
 </f:if>
 
-<f:if condition="{data.title}">
+<f:if condition="{page.pageRecord.title}">
 	<row class="edition-line highlight">
 		<columns small="12" large="6" class="first last">
-			<strong>{data.title}</strong>
+			<strong>{page.pageRecord.title}</strong>
 		</columns>
 	</row>
 	<row><columns class="spacer"></columns></row>

@@ -26,13 +26,6 @@ plugin.tx_emailtemplate {
     }
 
 
-    settings {
-
-      onSite.typeNum = {$plugin.tx_emailtemplate.onSite.typeNum}
-      defaultDescription = {$plugin.tx_emailtemplate.defaultDescription}
-      headerImage.width = 560
-    }
-
     variables {
       pageLayout = TEXT
       pageLayout.value = HtmlMail

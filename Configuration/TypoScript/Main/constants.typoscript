@@ -40,6 +40,8 @@ plugin.tx_emailtemplate {
         logo.alternative = Logo
         # cat=Email Template/05-images/0025; type=int; label=Override width for the logo (needed for outlook)
         logo.overrideWidth = 548
+        # cat=Email Template/05-images/0030; type=int; label=Width of the header image (page media)
+        headerImage.width = 560
 
         # cat=Email Template/05-images/0205; type=string; label=Width of images spanning 4 cols: Image width in pixel, append "m" to set maximum width
         images.cols4.width = 272m
